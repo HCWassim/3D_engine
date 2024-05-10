@@ -1,5 +1,3 @@
-Voici un exemple de README basé sur ces informations :
-
 ---
 
 # 3D Engine in C
@@ -51,5 +49,3 @@ This project is licensed under the [MIT License](./LICENSE). Feel free to use an
 Thank you for your interest in our 3D engine! We look forward to seeing what you create with it.
 
 ---
-
-N'hésitez pas à ajuster les détails et les liens selon votre projet spécifique.
