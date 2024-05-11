@@ -12,7 +12,7 @@ To get started with this 3D engine:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repo-link.git
+   git clone https://github.com/3d_engine.git
    ```
 
 2. **Install Dependencies**
