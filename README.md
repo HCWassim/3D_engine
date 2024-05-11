@@ -2,7 +2,7 @@
 
 # 3D Engine in C
 
-Welcome to our 3D engine repository! This project is a lightweight and high-performance 3D engine written in the C language. It is designed to be modular and extensible, offering features for real-time 3D rendering, scene management, 3D models, and visual effects.
+Welcome, this project is a lightweight and high-performance 3D engine written in the C language. It is designed to be modular and extensible, offering features for real-time 3D rendering, scene management, 3D models, and visual effects.
 
 ## Prerequisites
 To run this engine, you'll need to have [Simple DirectMedia Layer (SDL)](https://www.libsdl.org/) installed on your system. Please ensure you have the latest version of SDL installed before proceeding.
