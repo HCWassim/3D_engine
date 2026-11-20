@@ -20,14 +20,14 @@ Work in progress: Perlin noise terrain generation (`map.c`) is implemented but n
 3D_engine/
 ├── Makefile      build script
 ├── src/          source code (.c and .h files)
-├── include/      SDL2 headers (see installation below)
-└── lib/          SDL2 libraries (Windows only)
+├── include/      SDL2 headers (included in the repository)
+└── lib/          SDL2 libraries (Windows only, not in the repository)
 ```
 
 ## Prerequisites
 
 - A C compiler (GCC, on Linux or through MSYS2 on Windows)
-- SDL2 development libraries (version 2.x)
+- SDL2 libraries, version 2.x
 - `make` (`mingw32-make` on Windows)
 
 ## Installation
@@ -48,11 +48,7 @@ Work in progress: Perlin noise terrain generation (`map.c`) is implemented but n
    cd 3D_engine
    ```
 
-3. Create a link to the SDL2 headers in the project root. The source files include `"../include/SDL.h"`, so this link is required:
-
-   ```bash
-   ln -sfn /usr/include/SDL2 include
-   ```
+The SDL2 headers are already in `include/`. The `libsdl2-dev` package provides the libraries used at link time.
 
 ### Windows (MSYS2 / UCRT64)
 
@@ -94,16 +90,12 @@ Work in progress: Perlin noise terrain generation (`map.c`) is implemented but n
    cd 3D_engine
    ```
 
-   Without Git, download the ZIP from GitHub (**Code > Download ZIP**), extract it and open the extracted folder.
+   Without Git, download the ZIP from GitHub (**Code > Download ZIP**), extract it and open the extracted folder. The SDL2 headers in `include/` come with the repository.
 
-6. **Create the `include` and `lib` folders** and copy the SDL2 files into them:
+6. **Add the SDL2 libraries and DLL.** These files are not in the repository, so copy them from MSYS2:
 
    ```powershell
-   New-Item -ItemType Directory -Force include, lib
-
-   # SDL2 headers: the source files need include\SDL.h directly, so copy the
-   # contents of the SDL2 subfolder (not the subfolder itself)
-   Copy-Item C:\msys64\ucrt64\include\SDL2\* include\
+   New-Item -ItemType Directory -Force lib
 
    # Libraries used at link time
    Copy-Item C:\msys64\ucrt64\lib\libSDL2.dll.a lib\
@@ -156,9 +148,9 @@ On Windows, replace `make` with `mingw32-make` in these commands.
 | Error | Cause | Solution |
 |-------|-------|----------|
 | `mingw32-make` is not recognised | The PATH was not updated | Re-run step 4, then open a new terminal |
-| `../include/SDL.h: No such file or directory` | `include` is missing or `SDL.h` is not directly inside it | Re-run step 6 so that `include\SDL.h` exists |
-| `cannot find -lSDL2` or `-lSDL2main` | Library files missing from `lib` | Copy `libSDL2.dll.a` and `libSDL2main.a` into `lib\` |
-| The program closes immediately, with a message about `SDL2.dll` | DLL not next to the executable | Copy `SDL2.dll` into the project root |
+| `../include/SDL.h: No such file or directory` | The repository was not cloned completely | Check that `include\SDL.h` exists, or run `git pull` |
+| `cannot find -lSDL2` or `-lSDL2main` | Library files missing from `lib` | Re-run step 6 so that `lib\` contains `libSDL2.dll.a` and `libSDL2main.a` |
+| The program closes immediately, with a message about `SDL2.dll` | DLL not next to the executable | Copy `SDL2.dll` into the project root (step 6) |
 | `ERREUR: echec initialisation de renderer` | Missing or outdated graphics driver | Update the graphics card driver |
 
 ## Controls
