@@ -1,0 +1,6 @@
+*.o
+*.d
+prgm
+prgm.exe
+lib/
+*.dll
